@@ -1,3 +1,16 @@
 body {
-    font-family: "Roboto";
-  }
+  font-family: "Roboto";
+  color: #681f1f;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login-container{
+  background-color: #025464;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 100px;
+}
+
