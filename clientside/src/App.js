@@ -1,8 +1,9 @@
 import "./App.css";
-import Dashboard from "./pages/Dashboard";
+// import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import MailVerifyPage from "./pages/MailVerifyPage";
 import Register from "./pages/Register";
+import UserPage from "./pages/UserPage";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -22,10 +23,10 @@ function App() {
           <Route
             element={
               <ProtectedRoutes>
-                <Dashboard />
+                <UserPage />
               </ProtectedRoutes>
             }
-            path="/dashboard"
+            path="/userpage"
           ></Route>
           <Route
             element={
@@ -60,7 +61,7 @@ function App() {
 export const PublicRoutes = ({children}) => {
   const token = localStorage.getItem("data");
   if (token) {
-    return <Navigate to={"/dashboard"}></Navigate>;
+    return <Navigate to={"/userpage"}></Navigate>;
   } else {
     return children;
   }
