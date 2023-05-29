@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 setTimeout(() => {
   window.close();
-}, 1000);
+}, 5000);
 const MailVerifyPage = () => {
   const params = useParams();
   const data = {
@@ -13,7 +15,31 @@ const MailVerifyPage = () => {
 
   useEffect(() => {
     axios.post("/auth/tokenverify", data).then((log) => {
-      return alert(log.data.msg);
+      if (log.data.success === true) {
+        toast.success(log.data.msg, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        
+        
+      } else {
+        toast.error(log.data.msg, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
     });
   });
   const links = [
@@ -29,7 +55,20 @@ const MailVerifyPage = () => {
     { name: "Service Available For", value: "7 Days Per Week" },
   ];
   return (
+    
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 h-screen">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <img
         src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
         alt=""
