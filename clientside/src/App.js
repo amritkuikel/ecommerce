@@ -58,22 +58,22 @@ function App() {
   );
 }
 
-export const PublicRoutes = ({children}) => {
-  const token = localStorage.getItem("data");
-  if (token) {
-    return <Navigate to={"/userpage"}></Navigate>;
-  } else {
-    return children;
-  }
-};
+// export const PublicRoutes = ({children}) => {
+//   const token = localStorage.getItem("data");
+//   if (token) {
+//     return <Navigate to={"/userpage"}></Navigate>;
+//   } else {
+//     return children;
+//   }
+// };
 
-export const ProtectedRoutes = ({children}) => {
-  const token = localStorage.getItem("data");
-  if (token) {
-    return children;
-  } else {
-    return <Navigate to={"/"}></Navigate>;
-  }
-};
+// export const ProtectedRoutes = ({children}) => {
+//   const token = localStorage.getItem("data");
+//   if (token) {
+//     return children;
+//   } else {
+//     return <Navigate to={"/"}></Navigate>;
+//   }
+// };
 
 export default App;
