@@ -22,33 +22,33 @@ function App() {
         <Routes>
           <Route
             element={
-              <ProtectedRoutes>
+              // <ProtectedRoutes>
                 <UserPage />
-              </ProtectedRoutes>
+              // </ProtectedRoutes>
             }
             path="/userpage"
           ></Route>
           <Route
             element={
-              <PublicRoutes>
+              // <PublicRoutes>
                 <Login />
-              </PublicRoutes>
+              // </PublicRoutes>
             }
             path="/"
           ></Route>
           <Route
             element={
-              <PublicRoutes>
+              // <PublicRoutes>
                 <MailVerifyPage />
-              </PublicRoutes>
+              // </PublicRoutes>
             }
             path="/verify/:token"
           ></Route>
           <Route
             element={
-              <PublicRoutes>
+              // <PublicRoutes>
                 <Register />
-              </PublicRoutes>
+              // </PublicRoutes>
             }
             path="/register"
           ></Route>
